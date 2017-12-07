@@ -1,0 +1,34 @@
+'''File operation order: Open a file -> Read or write -> Close the file.'''
+
+f = open("test.txt")
+f = open("C:/xxx/xxx.txt")
+
+'''File open mode -r-, -w-, -a-, -text-, -binary-'''
+f = open("test.txt", mode='r', encoding='utf-8')
+f.close()
+
+'''A safer way to use files.'''
+try:
+  f = open("test.txt", encoding='utf-8')
+finally:
+  f.close()
+  
+'''Another way to safely use files.'''
+with open('test.txt', encoding='utf-8') as f:
+  # perform file operations
+  
+'''Write to files.'''
+with open('test.txt', encoding='utf-8') as f:
+  f.write("my first file\n")
+  f.wirte("This file\n\n")
+  
+'''Read from files.'''
+f = open("test.txt", 'r', encoding='utf-8')
+f.read(4)
+f.tell()  # get the current file position
+f.seek(0)  # bring file cursor to initial position
+for line in f:
+  print(line, end='')
+  
+f.readline()
+f.readlines()
