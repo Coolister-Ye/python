@@ -1,0 +1,16 @@
+"""
+This code use to record the simple usage of apscheduler to run the python code periodically.
+"""
+
+from apscheduler.schedulers.background import BackgroundScheduler
+from apscheduler.triggers.cron import CronTrigger
+
+def job_function():
+  print("OK!!!")
+  
+ sched = BackgroundScheduler()
+ trigger = CronTrigger(day=3, hour=3, minute=30, second=0)
+ sched.add_job(job_function, trigger)
+ sched.start()
+ 
+ sched.add_job(job_function, "cron", day_of_week='mon-fir', hour=5, end_date='2018-10-10')
