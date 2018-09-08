@@ -36,3 +36,9 @@ import logging
 
 def do_something():
     logging.info('Doing something')
+    
+# logging variable data
+logging.warning('%s before you %s', 'Look', 'leap!')
+
+# Chaging the format of displayed messages
+logging.basicConfig(format='%(levelname)s-%(asctime)s:%(message)s', level=logging.DEBUG, datafmt='%m/%d/%Y %I:%M:%S %p')
